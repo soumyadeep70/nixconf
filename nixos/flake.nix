@@ -17,14 +17,14 @@
     let
       system = "aarch64-linux";
       host = "hyprbook";
+      username = "cypher";
     in
     {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
-	    inherit system;
+	          inherit system;
             inherit inputs;
-            inherit username;
             inherit host;
           };
           modules = [

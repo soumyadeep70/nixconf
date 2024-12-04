@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # ┌───────────────────┐
@@ -6,7 +6,7 @@
   # └───────────────────┘
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelParams = [ 
+    kernelParams = [
       "splash"
       "quiet"
       "fbcon=nodefer"
@@ -39,4 +39,13 @@
     };
     plymouth.enable = true;
   };
+
+
+  # ┌─────────────────────────────────┐
+  # │      Other additional stuff     │
+  # └─────────────────────────────────┘
+  systemd.package = pkgs.systemd.override { withSelinux = true; };
+  environment.systemPackages = with pkgs; [
+    policycoreutils         # SELinux utilities
+  ];
 }
