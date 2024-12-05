@@ -41,10 +41,36 @@
   };
 
 
-  # ┌─────────────────────────────────┐
-  # │      Other additional stuff     │
-  # └─────────────────────────────────┘
-  systemd.package = pkgs.systemd.override { withSelinux = true; };
+  # ┌───────────────────┐
+  # │      Drivers      │
+  # └───────────────────┘
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-compute-runtime
+      intel-media-driver
+      intel-vaapi-driver.override { enableHybridCodec = true; }
+      vaapiVdpau
+      libvdpau-va-gl
+      mesa
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      intel-media-driver
+      intel-vaapi-driver.override { enableHybridCodec = true; }
+      vaapiVdpau
+      mesa
+      libvdpau-va-gl
+    ];
+  };
+
+
+  # ┌─────────────────┐
+  # │      Others     │
+  # └─────────────────┘
+  systemd.package = pkgs.systemd.override {
+    withSelinux = true;
+  };
   environment.systemPackages = with pkgs; [
     policycoreutils         # SELinux utilities
   ];

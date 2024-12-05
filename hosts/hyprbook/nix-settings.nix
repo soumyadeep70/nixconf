@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  # ┌────────────────────────┐
+  # │      Nix-settings      │
+  # └────────────────────────┘
   nixpkgs.config.allowUnfree = true;
 
   nix = {
