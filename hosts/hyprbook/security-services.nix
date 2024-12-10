@@ -33,6 +33,9 @@
       })
     ''
   };
+  environment.systemPackages = [
+    polkit_gnome
+  ];
 
 
   # ┌───────────────────┐

@@ -4,15 +4,13 @@
   # ┌────────────────────────┐
   # │      File-manager      │
   # └────────────────────────┘
-  programs.thunar = {
+  programs.nautilus = {
     enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
+    nautilus-open-in-blackbox.enable = true;
   };
+  programs.nautilus-open-any-terminal.enable = true;
 
-  
+
   # ┌─────────────────┐
   # │      Steam      │
   # └─────────────────┘

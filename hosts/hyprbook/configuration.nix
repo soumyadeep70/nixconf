@@ -1,14 +1,55 @@
 { config, pkgs, host, options, ... }:
 
 {
-  imports = [
-    ./users.nix
-    ./config/drivers
-    ./config/hardware
-    ./config/virtualization
-  ];
+  system = {
+    wget
+    psmisc
+    git
+    htop
+    unzip
+    unrar
+    libnotify
+    v4l-utils
+    ydotool
+    pciutils
+    ffmpeg
+    socat
+    pkg-config
+    meson
+    ninja
+    brightnessctl
+    virt-viewer
+    networkmanagerapplet
+    grim
+    slurp
+    swww
+  };
 
-  programs.dconf.enable = true;
+  user = {
+    eza
+    cmatrix
+    lolcat
+    cowsay
+    ripgrep
+    lshw
+    bat
+    wl-clipboard
+    swappy
+    yad
+    inxi
+    playerctl
+    nh
+    nixfmt-rfc-style
+    discord
+    swaynotificationcenter
+    imv
+    mpv
+    gimp
+    pavucontrol
+    tree
+    spotify
+    neovide
+  };
 
   environment.systemPackages = with pkgs; [
     wget
