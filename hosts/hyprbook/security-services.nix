@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # ┌───────────────────┐
@@ -31,10 +31,10 @@
           return polkit.Result.YES;
         }
       })
-    ''
+    '';
   };
   environment.systemPackages = [
-    polkit_gnome
+    pkgs.polkit_gnome
   ];
 
 

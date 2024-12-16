@@ -6,8 +6,6 @@
     psmisc
     git
     htop
-    unzip
-    unrar
     libnotify
     v4l-utils
     ydotool
